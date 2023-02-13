@@ -17,7 +17,7 @@ function App() {
     <div className="App">
       <Searchbar />
       <Routes>
-        <Route path="/" element={<WordsList />} />
+        <Route path="/" element={<WordsList words={words} />} />
         <Route path="words/:id" element={<Word />} />
         <Route path="*" element={<NoWord />} />
       </Routes>
