@@ -1,7 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
 
-function Searchbar() {
-  return <div>Searchbar</div>;
-}
+function Searchbar() {}
 
 export default Searchbar;

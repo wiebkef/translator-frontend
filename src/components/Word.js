@@ -1,7 +1,7 @@
 import React from "react";
 
 function Word() {
-  return <div>Word</div>;
+  return;
 }
 
 export default Word;

@@ -1,6 +1,7 @@
 import "./App.css";
 import Searchbar from "./components/Searchbar";
 import WordsList from "./components/WordsList";
+import Word from "./components/Word";
 import { Routes, Route, NavLink, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
@@ -14,7 +15,8 @@ function App() {
   return (
     <div className="App">
       <Searchbar />
-      <WordsList />
+      <WordsList words={words} />
+      <Word words={words} />
     </div>
   );
 }
