@@ -1,19 +1,24 @@
 import "./App.css";
 import SearchBar from "./components2/SearchBar";
 import WordsList from "./components2/WordsList";
+import Footer from "./components2/Footer";
+import Navbar from "./components2/Navbar";
 import { Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Container from "react-bootstrap/Container";
 import axios from "axios";
+import Card from "react-bootstrap/Card";
 
 function App() {
-  const [words, setWords] = useState();
+  const [words, setWords] = useState([]);
+  // const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     axios
       .get("https://crossover-wordoftheday.onrender.com/words")
       .then((response) => {
         setWords(response.data.words);
+        // setIsLoaded(true);
         console.log(response.data.words);
       })
       .catch((error) => {
@@ -23,12 +28,18 @@ function App() {
 
   return (
     <div className="App">
-      <Container>
-        <SearchBar />
-        <Routes>
-          <Route path="/" element={<WordsList words={words} />} />
-        </Routes>
+      <Navbar />
+      <Container className="container">
+        <Card style={{ width: "65em", margin: "auto" }}>
+          <Card.Body>
+            <SearchBar />
+            <Routes>
+              <Route path="/" element={<WordsList words={words}/>} />
+            </Routes>
+          </Card.Body>
+        </Card>
       </Container>
+      <Footer />
     </div>
   );
 }

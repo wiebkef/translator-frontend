@@ -44,7 +44,7 @@ export default function SearchBar() {
     <Form className="d-flex" onSubmit={handleSubmit}>
       <Form.Control
         type="search"
-        placeholder="Search by name"
+        placeholder="Type the word"
         className="me-2"
         aria-label="Search"
         onChange={handleChange}
