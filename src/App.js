@@ -1,26 +1,34 @@
 import "./App.css";
-import Searchbar from "./components/Searchbar";
-import WordsList from "./components/WordsList";
-import Word from "./components/Word";
-import NoWord from "./components/NoWord";
-import { Routes, Route, NavLink, Link } from "react-router-dom";
+import SearchBar from "./components2/SearchBar";
+import WordsList from "./components2/WordsList";
+import { Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
+import Container from "react-bootstrap/Container";
+import axios from "axios";
 
 function App() {
-  const [words, setWords] = useState([
-    { german: "Schule", english: "school" },
-    { german: "Stuhl", english: "chair" },
-    { german: "Tisch", english: "table" },
-  ]);
+  const [words, setWords] = useState();
+
+  useEffect(() => {
+    axios
+      .get("https://crossover-wordoftheday.onrender.com/words")
+      .then((response) => {
+        setWords(response.data.words);
+        console.log(response.data.words);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
 
   return (
     <div className="App">
-      <Searchbar />
-      <Routes>
-        <Route path="/" element={<WordsList words={words} />} />
-        <Route path="words/:id" element={<Word />} />
-        <Route path="*" element={<NoWord />} />
-      </Routes>
+      <Container>
+        <SearchBar />
+        <Routes>
+          <Route path="/" element={<WordsList words={words} />} />
+        </Routes>
+      </Container>
     </div>
   );
 }
