@@ -33,7 +33,7 @@ function App() {
     <div className="App">
       <Navbar />
       <Container className="container">
-        <Card style={{ width: "65em", margin: "auto" }}>
+        <Card style={{ width: "65em", minHeight: "65vh", margin: "auto" }}>
           <Card.Body>
             <SearchBar />
             <Routes>

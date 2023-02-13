@@ -18,26 +18,15 @@ export default function SearchBar() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (value === "") {
-      toast("Please type a word");
-    } else {
-          axios
-        .get(`https://crossover-wordoftheday.onrender.com/words/${value}`)
-        .then((response) => { console.log(response.data.words)
-          if (response.data) {
-            navigate(`/${response.data.words.german_word}`);
-          } else {
-            toast(
-              "No such word in our dictionary"
-            );
-          }
-        }
-        )
-        .catch((error) => {
-          console.log(error);
-        });
-      setValue("");
-    }
+    axios
+    .get(`https://crossover-wordoftheday.onrender.com/words/${value}`)
+    .then((response) => {
+      console.log(response.data);
+      navigate(`/${value}`)         
+    })
+    .catch((error) => {
+      console.log(error);
+    });
   };
 
   return (

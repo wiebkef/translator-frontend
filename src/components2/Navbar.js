@@ -8,7 +8,7 @@ function NavaBar() {
   return (
     <Navbar bg="dark" expand="sm">
       <Container>
-        <Navbar.Brand href="#home" className="text-light">
+        <Navbar.Brand href="/" className="text-light">
           Love for Words
         </Navbar.Brand>
         <img
@@ -21,11 +21,11 @@ function NavaBar() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#home" className="text-light">
+            <Nav.Link href="/" className="text-light">
               Home
             </Nav.Link>
-            <Nav.Link href="#link" className="text-light">
-              Link
+            <Nav.Link href="/" className="text-light">
+              Dictionary
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
