@@ -21,8 +21,6 @@ function App() {
         <Route path="words/:id" element={<Word />} />
         <Route path="*" element={<NoWord />} />
       </Routes>
-      <Searchbar />
-      <WordsList />
     </div>
   );
 }
