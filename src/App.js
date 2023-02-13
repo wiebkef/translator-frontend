@@ -7,6 +7,7 @@ import NavaBar from "./components/Navbar";
 import Footer from "./components/Footer";
 import { Routes, Route, NavLink, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import "mdbreact/dist/css/mdb.css";
 
 function App() {
   const [words, setWords] = useState([
@@ -19,14 +20,14 @@ function App() {
     <div className="App">
       <NavaBar />
       <Searchbar />
+
       <Routes>
         <Route path="/" element={<WordsList words={words} />} />
         <Route path="words/:id" element={<Word />} />
         <Route path="*" element={<NoWord />} />
       </Routes>
-      <div>
-        <Footer />
-      </div>
+
+      <Footer />
     </div>
   );
 }
