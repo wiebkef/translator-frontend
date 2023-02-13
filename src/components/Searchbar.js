@@ -23,17 +23,25 @@ function Searchbar() {
   };
 
   return (
-    <Form>
-      <Form.Control
-        type="text"
-        placeholder="Translate"
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-      />
-      <Button variant="primary" type="submit" onClick={handleSearchSubmit}>
-        Search
-      </Button>
-    </Form>
+    <Container>
+      <Form className="row align-items-center">
+        <Form.Control
+          className="col"
+          type="text"
+          placeholder="Translate"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
+        <Button
+          className="col-2"
+          variant="primary"
+          type="submit"
+          onClick={handleSearchSubmit}
+        >
+          Search
+        </Button>
+      </Form>
+    </Container>
   );
 }
 
