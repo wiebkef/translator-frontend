@@ -1,6 +1,8 @@
 import "./App.css";
 import Searchbar from "./components/Searchbar";
 import WordsList from "./components/WordsList";
+import Word from "./components/Word";
+import NoWord from "./components/NoWord";
 import { Routes, Route, NavLink, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
@@ -13,6 +15,12 @@ function App() {
 
   return (
     <div className="App">
+      <Searchbar />
+      <Routes>
+        <Route path="/" element={<WordsList />} />
+        <Route path="words/:id" element={<Word />} />
+        <Route path="*" element={<NoWord />} />
+      </Routes>
       <Searchbar />
       <WordsList />
     </div>
